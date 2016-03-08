@@ -20,10 +20,15 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="www/css/bootstrap.min.css"></link>
 	<link rel="stylesheet" type="text/css" href="www/css/bootstrap-theme.min.css"></link>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a80bfdfeb907b4f9aa75914f09629dfc3b53db8
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="www/css/font-awesome.min.css"></link>
 	<link rel="stylesheet" type="text/css" href="www/css/jquery-ui.min.css"></link>
 	
+<<<<<<< HEAD
 	<script type="text/javascript" src="www/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="www/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="www/js/bootstrap.min.js"></script>
@@ -38,3 +43,10 @@
 		die();
 	}
 	?>
+=======
+	
+	<script type="text/javascript" src="www/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="www/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="www/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="www/js/twbs-pagination/jquery.twbsPagination.min.js"></script>
+>>>>>>> 2a80bfdfeb907b4f9aa75914f09629dfc3b53db8

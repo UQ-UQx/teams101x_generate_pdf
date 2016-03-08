@@ -34,6 +34,7 @@ once cloned, create a file called "config.php" and add the following with your d
 ?>
 ```
 
+
 # Setup
 1. Edit config.php with your respective LTI keys and optional database details
 2. Host on a https server (LTI with edX requires HTTPS)
@@ -55,3 +56,26 @@ User preferences will be generated into a PDF, to be used in peer assessment.
 
 # Testing
 For testing we recommend the LTI 1.1 testbed, available at: http://www.imsglobal.org/developers/LTI/test/v1p1/lms.php
+
+
+### Database
+#### MySQL
+> Version Ver 14.14 Distrib 5.1.73, for redhat-linux-gnu (x86_64) using readline 5.1
+
+#### Tables
+
+* Responses
+
+```sql
+
+CREATE TABLE `responses` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` text,
+  `survey_id` text NOT NULL,
+  `response` mediumtext,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+```
