@@ -6,12 +6,9 @@
 <?php
 	$lti->requirevalid();
 ?>
-<h1>Generate PDF</h1>
-
 
 <!-- Answer a bunch of questions and a pdf will be generated -->
 
-<button class="makepdf">Generate PDF</button>
 
 <script type="text/javascript">
 
@@ -75,33 +72,121 @@ $(document).ready(function() {
 
 <form id="survey_form" action="javascript:void(0);" method="POST">
 
-What is your gender?
-	<input type="radio" name="gender" value="male" checked> Male<br>
-  <input type="radio" name="gender" value="female"> Female<br>
-  <input type="radio" name="gender" value="other"> Other
+
+<div id="qustion_1" class="question_container">
+	<h3>Extroversion or introversion</h3>
+	<p>Would you consider yourself an extrovert or introvert?</p>
+	<p>Mark the box that best describes you</p>
+
+	<div class="input_container extro_intro_inputs">
+		<input type="radio" name="extro_intro_input" id="introvert_input"	value="Introvert">Introvert</br>
+		<input type="radio" name="extro_intro_input" id="equal_input"	value="Equal traits of both">Equal traits of both</br>
+		<input type="radio" name="extro_intro_input" id="extrovert_input"	value="Extrovert">Extrovert</br>
+	</div>
+</div>
+
+<div id="qustion_2" class="question_container">
+	<h3>Friendliness</h3>
+	<p>Mark the box that best describes your level of friendliness</p>
+
+	<div class="input_container friendliness_inputs">
+		<input type="radio" name="friendliness_input" id="low_input"	value="Low">Low</br>
+		<input type="radio" name="friendliness_input" id="medium_input"	value="Medium">Medium</br>
+		<input type="radio" name="friendliness_input" id="high_input"	value="High">High</br>
+	</div>
+</div>
+
+<div id="qustion_3" class="question_container">
+	<h3>Team Interest or Self Interest</h3>
+	<p>On a scale of team versus self-interest where does your motivation lie?</p>
+
+	<div class="input_container interest_inputs">
+		<input type="radio" name="interest_input" id="1_input"	value="1">1 - Team Interest</br>
+		<input type="radio" name="interest_input" id="2_input"	value="2">2</br>
+		<input type="radio" name="interest_input" id="3_input"	value="3">3</br>
+		<input type="radio" name="interest_input" id="4_input"	value="4">4</br>
+		<input type="radio" name="interest_input" id="5_input"	value="5">5 - Self Interest</br>
+	</div>
+</div>
 
 
+<div id="question_4" class="question_container">
+
+<h3>Team role preferences</h3>
+	<p>Indicate your preference for the team roles below with:</p>
+
+	First preference:
+	<div class="input_container preferences_inputs">
+		<select id="preference_dropdown">
+				<option value=""></option>
+				<option value="Coordinator">Coordinator</option>
+				<option value="Shaper">Shaper</option>
+				<option value="Implementer">Implementer</option>
+				<option value="Plant">Plant</option>
+				<option value="Team worker">Team worker</option>
+				<option value="Monitor/evaluator">Monitor/evaluator</option>
+				<option value="Completer/finisher">Completer/finisher</option>
+				<option value="Resource Investigator">Resource Investigator</option>
+		</select>
+	</div>
+
+
+	Second preference:
+	<div class="input_container preferences_inputs">
+		<select id="preference_dropdown">
+				<option value=""></option>
+				<option value="Coordinator">Coordinator</option>
+				<option value="Shaper">Shaper</option>
+				<option value="Implementer">Implementer</option>
+				<option value="Plant">Plant</option>
+				<option value="Team worker">Team worker</option>
+				<option value="Monitor/evaluator">Monitor/evaluator</option>
+				<option value="Completer/finisher">Completer/finisher</option>
+				<option value="Resource Investigator">Resource Investigator</option>
+		</select>
+	</div>
+
+	Least prefered role:
+	<div class="input_container preferences_inputs">
+		<select id="preference_dropdown">
+				<option value=""></option>
+				<option value="Coordinator">Coordinator</option>
+				<option value="Shaper">Shaper</option>
+				<option value="Implementer">Implementer</option>
+				<option value="Plant">Plant</option>
+				<option value="Team worker">Team worker</option>
+				<option value="Monitor/evaluator">Monitor/evaluator</option>
+				<option value="Completer/finisher">Completer/finisher</option>
+				<option value="Resource Investigator">Resource Investigator</option>
+		</select>
+	</div>
+
+
+
+
+</div>
+
+<button class="btn btn-primary btn-md makepdf">Generate PDF</button>     <button id='resetButton' type='reset' class="btn btn-default btn-md">Reset</button>
 
 
 </form>
 
 
+<style type="text/css">
+	
+	.question_container{
 
+		margin-bottom:30px;
+	}
 
+	.input_container{
 
-
-<button id='submitButton' class="btn btn-primary btn-md">Submit</button>     <button id='resetButton' class="btn btn-default btn-md">Reset</button>
-
-<style>
-
-
-	.loadingicon{
-
-		font-size: 18px;
-		margin-top: 20px;
+		margin-left:30px;
 
 	}
+
 </style>
+
 
 <script type='text/javascript'>
 
