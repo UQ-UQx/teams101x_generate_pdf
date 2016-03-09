@@ -64,8 +64,6 @@ $(document).ready(function() {
 
 	//define scale of the survey and questions
 
-
-
 ?>
 
 
@@ -76,8 +74,6 @@ $(document).ready(function() {
 <div id="qustion_1" class="question_container">
 	<h3>Extroversion or introversion</h3>
 	<p>Would you consider yourself an extrovert or introvert?</p>
-	<p>Mark the box that best describes you</p>
-
 	<div class="input_container extro_intro_inputs">
 		<input type="radio" name="extro_intro_input" id="introvert_input"	value="Introvert">Introvert</br>
 		<input type="radio" name="extro_intro_input" id="equal_input"	value="Equal traits of both">Equal traits of both</br>
@@ -87,7 +83,7 @@ $(document).ready(function() {
 
 <div id="qustion_2" class="question_container">
 	<h3>Friendliness</h3>
-	<p>Mark the box that best describes your level of friendliness</p>
+	<p>select the option that best describes your level of friendliness</p>
 
 	<div class="input_container friendliness_inputs">
 		<input type="radio" name="friendliness_input" id="low_input"	value="Low">Low</br>
@@ -115,9 +111,9 @@ $(document).ready(function() {
 <h3>Team role preferences</h3>
 	<p>Indicate your preference for the team roles below with:</p>
 
-	First preference:
 	<div class="input_container preferences_inputs">
-		<select id="preference_dropdown">
+		<b>First preference:</b>
+		<select class="preference_dropdown">
 				<option value=""></option>
 				<option value="Coordinator">Coordinator</option>
 				<option value="Shaper">Shaper</option>
@@ -131,9 +127,9 @@ $(document).ready(function() {
 	</div>
 
 
-	Second preference:
 	<div class="input_container preferences_inputs">
-		<select id="preference_dropdown">
+		<b>Second preference:</b>
+		<select class="preference_dropdown">
 				<option value=""></option>
 				<option value="Coordinator">Coordinator</option>
 				<option value="Shaper">Shaper</option>
@@ -146,9 +142,9 @@ $(document).ready(function() {
 		</select>
 	</div>
 
-	Least prefered role:
 	<div class="input_container preferences_inputs">
-		<select id="preference_dropdown">
+		<b>Least prefered role:</b>
+		<select class="preference_dropdown">
 				<option value=""></option>
 				<option value="Coordinator">Coordinator</option>
 				<option value="Shaper">Shaper</option>
@@ -173,7 +169,7 @@ $(document).ready(function() {
 
 
 <style type="text/css">
-	
+
 	.question_container{
 
 		margin-bottom:30px;
@@ -182,6 +178,19 @@ $(document).ready(function() {
 	.input_container{
 
 		margin-left:30px;
+
+
+	}
+
+	.input_container input{
+
+		margin-right: 10px;
+		margin-bottom:10px;
+	}
+
+	.preference_dropdown{
+
+		display: block;
 
 	}
 
@@ -193,216 +202,215 @@ $(document).ready(function() {
 
 
 
-	$(document).ready(function(){
+// 	$(document).ready(function(){
 
-		resize();
+// 		resize();
 
-		var fullwidth, pagewidth;
+// 		var fullwidth, pagewidth;
 
-		var current_response_status = '<?php echo $currentresponsestatus; ?>';
 
-		$('#feedbackButton').hide();
-		$('.score_text').hide();
-		var showpage_feature = true;
+// 		$('#feedbackButton').hide();
+// 		$('.score_text').hide();
+// 		var showpage_feature = true;
 
-		if(current_response_status == 'finished'){
+// 		if(current_response_status == 'finished'){
 
 
-			var current_score = calculateScore();
+// 			var current_score = calculateScore();
 
-// 			constructScoreFeedback(current_score);
-			showpage_feature = false;
-			$('#feedbackButton').show();
+// // 			constructScoreFeedback(current_score);
+// 			showpage_feature = false;
+// 			$('#feedbackButton').show();
 
 
 
 
-		}
+// 		}
 
-		$( window ).resize(function() {
-			resize();
-		});
-		function resize() {
-			fullwidth = $('body').width();
-			$('div.page_container').width(fullwidth);
-			pagewidth = fullwidth;
-			$('div.question_page').width(pagewidth-60);
-		}
+// 		$( window ).resize(function() {
+// 			resize();
+// 		});
+// 		function resize() {
+// 			fullwidth = $('body').width();
+// 			$('div.page_container').width(fullwidth);
+// 			pagewidth = fullwidth;
+// 			$('div.question_page').width(pagewidth-60);
+// 		}
 
 
 
-		var currentPage = 1;
-		var total_pages = <?php echo count($questions); ?>;
+// 		var currentPage = 1;
+// 		var total_pages = <?php echo count($questions); ?>;
 
-		var opts = {
-		    totalPages: total_pages,
-		    visiblePages: 5,
-		    startPage:currentPage,
-		    onPageClick: function (event, page) {
-		        console.log('Page change event. Page = ' + page);
-		        $('.pagination').data('currentPage', page);
-		        showpage(page);
-		    }
-		};
+// 		var opts = {
+// 		    totalPages: total_pages,
+// 		    visiblePages: 5,
+// 		    startPage:currentPage,
+// 		    onPageClick: function (event, page) {
+// 		        console.log('Page change event. Page = ' + page);
+// 		        $('.pagination').data('currentPage', page);
+// 		        showpage(page);
+// 		    }
+// 		};
 
-		$('.questions_pagination').twbsPagination(opts);
+// 		$('.questions_pagination').twbsPagination(opts);
 
-		$('.question_input').change(function(){
+// 		$('.question_input').change(function(){
 
-			if(showpage_feature){
+// 			if(showpage_feature){
 
-				var pageto = currentPage+1;
+// 				var pageto = currentPage+1;
 
-			    if(pageto < opts['totalPages']){
-			      $('.questions_pagination').twbsPagination('destroy');
-			      $('.questions_pagination').twbsPagination($.extend(opts, {
-			          startPage: pageto+1
-			      }));
-			    }
-			}
+// 			    if(pageto < opts['totalPages']){
+// 			      $('.questions_pagination').twbsPagination('destroy');
+// 			      $('.questions_pagination').twbsPagination($.extend(opts, {
+// 			          startPage: pageto+1
+// 			      }));
+// 			    }
+// 			}
 
-		});
+// 		});
 
-		function showpage(page){
+// 		function showpage(page){
 
-			console.log(page);
-			page = page-1;
+// 			console.log(page);
+// 			page = page-1;
 
-			leftm = fullwidth*page*-1;
+// 			leftm = fullwidth*page*-1;
 
-			$( ".page_scroller" ).animate({
-			    marginLeft: leftm,
-			}, 400);
+// 			$( ".page_scroller" ).animate({
+// 			    marginLeft: leftm,
+// 			}, 400);
 
-			currentPage = page;
+// 			currentPage = page;
 
-			//$('.currentpage_status').text((currentPage+1)+'/'+total_pages);
+// 			//$('.currentpage_status').text((currentPage+1)+'/'+total_pages);
 
 
-		}
+// 		}
 
 
-		var showprevious = '<?php echo $pre_qresponse_showanswer ?>';
-		var currentStatus = 'unfinished';
-		var survey_score = null;
+// 		var showprevious = '<?php echo $pre_qresponse_showanswer ?>';
+// 		var currentStatus = 'unfinished';
+// 		var survey_score = null;
 
-		$('#submitButton').click(function(event){
+// 		$('#submitButton').click(function(event){
 
-			$(this).addClass('disabled');
+// 			$(this).addClass('disabled');
 
-			$(this).prop("disabled", true);
- 			$(this).empty().append("Submitting <i class='fa fa-spinner fa-pulse'></i>");
+// 			$(this).prop("disabled", true);
+//  			$(this).empty().append("Submitting <i class='fa fa-spinner fa-pulse'></i>");
 
-			var data = check();
-			save(data);
+// 			var data = check();
+// 			save(data);
 
-		});
+// 		});
 
-		$('#resetButton').click(function(event){
+// 		$('#resetButton').click(function(event){
 
-			reset();
+// 			reset();
 
-		});
+// 		});
 
-		function check(){
+// 		function check(){
 
-			var status = {};
-			var statusString;
-			var qcount = 0;
-			var answeredcount = 0;
+// 			var status = {};
+// 			var statusString;
+// 			var qcount = 0;
+// 			var answeredcount = 0;
 
 
 
-			$('.question_container').each(function(){
-				qcount++;
-				$(this).find('.question_input').each(function(ind, obj){
+// 			$('.question_container').each(function(){
+// 				qcount++;
+// 				$(this).find('.question_input').each(function(ind, obj){
 
-					if($(obj).is(':checked')){
-						status["question"+$(obj).data('question_number')] = $(obj).attr('data-option_num');
-						answeredcount++;
-						return false;
-					}else{
-						status["question"+$(obj).data('question_number')] = null;
-					}
+// 					if($(obj).is(':checked')){
+// 						status["question"+$(obj).data('question_number')] = $(obj).attr('data-option_num');
+// 						answeredcount++;
+// 						return false;
+// 					}else{
+// 						status["question"+$(obj).data('question_number')] = null;
+// 					}
 
-				});
-			});
+// 				});
+// 			});
 
-			var currentScore = calculateScore();
+// 			var currentScore = calculateScore();
 
-			status["score"] = currentScore;
+// 			status["score"] = currentScore;
 
-			status["questions_answered_count"] = answeredcount;
+// 			status["questions_answered_count"] = answeredcount;
 
-			status["status"] = 'unfinished';
+// 			status["status"] = 'unfinished';
 
-			if(qcount == answeredcount){
-				status["status"] = 'finished';
-				currentStatus = 'finished';
-			}else if(answeredcount > 0){
-				status["status"] = 'attempted';
-				currentStatus = 'attempted';
+// 			if(qcount == answeredcount){
+// 				status["status"] = 'finished';
+// 				currentStatus = 'finished';
+// 			}else if(answeredcount > 0){
+// 				status["status"] = 'attempted';
+// 				currentStatus = 'attempted';
 
-			}
+// 			}
 
-			statusString = JSON.stringify(status);
+// 			statusString = JSON.stringify(status);
 
-			return statusString;
+// 			return statusString;
 
-		}
+// 		}
 
-		function save(js_data){
+// 		function save(js_data){
 
 
 
-			var data = {'data':{}};
-			data['sid'] = '<?php echo $sid ?>';
-			data['user_id'] = '<?php echo $lti->user_id(); ?>';
-			data['data'] = $('#questionnaire_form').serialize();
-			data['js_data'] =  js_data;
+// 			var data = {'data':{}};
+// 			data['sid'] = '<?php echo $sid ?>';
+// 			data['user_id'] = '<?php echo $lti->user_id(); ?>';
+// 			data['data'] = $('#questionnaire_form').serialize();
+// 			data['js_data'] =  js_data;
 
-			data['lti_id'] = '<?php echo $lti->lti_id(); ?>';
-			data['lis_outcome_service_url'] = '<?php echo $lti->grade_url(); ?>';
-			data['lis_result_sourcedid'] = '<?php echo $lti->result_sourcedid(); ?>';
+// 			data['lti_id'] = '<?php echo $lti->lti_id(); ?>';
+// 			data['lis_outcome_service_url'] = '<?php echo $lti->grade_url(); ?>';
+// 			data['lis_result_sourcedid'] = '<?php echo $lti->result_sourcedid(); ?>';
 
-			$.ajax({
-			  type: "POST",
-			  url: "savedata.php",
-			  data: data,
-			  success: function(response) {
+// 			$.ajax({
+// 			  type: "POST",
+// 			  url: "savedata.php",
+// 			  data: data,
+// 			  success: function(response) {
 
-				  console.log(response);
+// 				  console.log(response);
 
-				$("#submitButton").removeClass('disabled');
-				$("#submitButton").prop("disabled", false);
- 				$("#submitButton").empty().append("Submit");
+// 				$("#submitButton").removeClass('disabled');
+// 				$("#submitButton").prop("disabled", false);
+//  				$("#submitButton").empty().append("Submit");
 
 
 
-			  },
-			  error: function(error){
-				  console.log(error);
-			  }
-			});
+// 			  },
+// 			  error: function(error){
+// 				  console.log(error);
+// 			  }
+// 			});
 
 
 
 
-		}
+// 		}
 
-		function reset(){
+// 		function reset(){
 
-			console.log('reset');
+// 			console.log('reset');
 
 
 
-		}
+// 		}
 
 
 
 
 
-	});
+// 	});
 
 
 
