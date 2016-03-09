@@ -20,6 +20,7 @@
 
 	$ltivars = $lti->calldata();
 
+
 	//get lti id first as defined by edx
 
 	$lti_id = $lti->resource_id();
@@ -188,23 +189,12 @@ var current_count = 0;
 $(document).ready(function() {
 
 
-
-
 	toggleGenerateButton('on');
-
-
-
-
-	console.log('hello world');
-
-
-
-	// pdfMake.createPdf(documentdef).download('awesome.pdf');
 
 	$(".makepdf").click(function(event) {
 
 		var form_data = $('#survey_form').serializeArray();
-		defineDocument(form_data);
+		generatePDF(form_data);
 	});
 
 	$(".resetButton").click(function(event){
@@ -226,13 +216,15 @@ $(document).ready(function() {
 
 
 
-	function defineDocument(data){
-
+	function generatePDF(data){
 		function convertImagesToBase64(images, callback){
+			//callback(images);
 
-			callback(images);
+			var base64_images = {};
 
-			$.each(images, function(ind, obj){
+			$.each(images, function(key, val){
+
+
 
 				var img = new Image();
 			    img.crossOrigin = 'Anonymous';
@@ -244,117 +236,64 @@ $(document).ready(function() {
 			        canvas.width = this.width;
 			        ctx.drawImage(this, 0, 0);
 			        dataURL = canvas.toDataURL();
-			        images[ind].base_url = dataURL;
+			        base64_images[key] = dataURL
 			        canvas = null;
 			    };
-			    img.src = obj.url;
+			    img.src = val.url;
+
 			});
 
-			var alldone = false;
+
+			var allImagesConverted = true;
 
 			var keepchecking = setInterval(function(){
 
-				$.each(images,function(inde, ob){
-						if(ob.base_url != 'undefined'){
-							alldone = true;
+				$.each(base64_images,function(key, val){
+
+						if(!val){
+							allImagesConverted = false;
 						}
 				});
 
-			},500);
-
-			if(alldone == true){
-				callback(images);
-				clearInterval(keepchecking);
-			}
-
-
-		}
-
-		var imagesToLoad = [
-
-				{
-					"image_name":"header",
-					"url":"www/images/pdf_header_image.jpg",
-					"base_url":"undefined"
-				},{
-					"image_name":"sample",
-					"url":"sample.jpg",
-					"base_url":"undefined"
+				if(allImagesConverted){
+					clearInterval(keepchecking);
+					callback(base64_images);
 				}
 
-		];
+			},500);
+		}
+
+		var imagesToLoad = {
+				"header":{
+					"url":"www/images/pdf_header_image.jpg",
+					"base64_url":"undefined"
+				},
+				"sample":{
+					"url":"sample.jpg",
+					"base64_url":"undefined"
+				}
+		};
+
+		convertImagesToBase64(imagesToLoad, generate);
 
 
 
-
-		convertImagesToBase64(imagesToLoad, generatePDF);
-
-
-		function generatePDF(images){
-
+		function generate(base64_images){
 
 			var documentStructure = {
 
 				content: [
 					{
-						image:base,
+						image:base64_images.sample,
 					}
 				]
 
 			}
 
+
+			pdfMake.createPdf(documentStructure).download('teams101x_Putting_YourSelf_In_The_Picture.pdf');
+
 		}
-
-
-
-		// var baseImage;
-
-		// function getBase64(url, callback, outputFormat){
-		//     var img = new Image();
-		//     img.crossOrigin = 'Anonymous';
-		//     img.onload = function(){
-		//         var canvas = document.createElement('CANVAS');
-		//         var ctx = canvas.getContext('2d');
-		//         var dataURL;
-		//         canvas.height = this.height;
-		//         canvas.width = this.width;
-		//         ctx.drawImage(this, 0, 0);
-		//         dataURL = canvas.toDataURL(outputFormat);
-		//         callback(dataURL);
-		//         canvas = null; 
-		//     };
-		//     img.src = 'pdf_header_image.jpg';
-
-		//     //set interval to see if the number of images that needed to load have come back, if so do a call back with an array of base64 
-		// }
-
-
-
-		// toDataUrl('pdf_header_image.jpg', getHeader);
-
-
-
-		// setInterval(function(){
-
-		// 	console.log(baseImage);
-
-		// },500);
-
-
-
-		// var dd = {
-		// 	content: [
-		// 		{
-		// 			image:base,
-		// 		}
-		// 	]
-
-		// }
-
-
-		//pdfMake.createPdf(dd).download('awesome.pdf');
-
-
 	}
 
 
@@ -388,3 +327,4 @@ $(document).ready(function() {
 
 </body>
 </html>
+

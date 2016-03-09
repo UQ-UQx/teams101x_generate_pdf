@@ -76,6 +76,15 @@ class Lti {
 	function get_errors() {
 		return $this->errors;
 	}
+
+	function user_name(){
+
+		if (isset($this->ltivars['lis_person_sourcedid'])) {
+			return $this->ltivars['lis_person_sourcedid'];
+		}
+		return "Unknown username";
+
+	}
 	
 	function is_valid() {
 		return $this->valid;
