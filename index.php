@@ -41,18 +41,18 @@
 
 
 <div id="qustion_1" class="question_container">
-	<span class="titles">Extraversion or introversion</span>
+	<span class="titles">Extraversion or Introversion</span>
 	<p>Would you consider yourself an extravert or introvert?</p>
 	<div class="input_container extra_intro_inputs">
 		<input class="target" type="radio" name="extra_intro_input" id="introvert_input"	value="Introvert">Introvert</br>
 		<input class="target" type="radio" name="extra_intro_input" id="equal_input"	value="Equal">Equal traits of both</br>
-		<input class="target" type="radio" name="extra_intro_input" id="extravert_input"	value="extravert">extravert</br>
+		<input class="target" type="radio" name="extra_intro_input" id="extravert_input"	value="extravert">Extravert</br>
 	</div>
 </div>
 
 <div id="qustion_2" class="question_container">
 	<span class="titles">Friendliness</span>
-	<p>select the option that best describes your level of friendliness</p>
+	<p>Select the option that best describes your level of friendliness.</p>
 
 	<div class="input_container friendliness_inputs">
 		<input class="target" type="radio" name="friendliness_input" id="low_input"	value="Low">Low</br>
@@ -77,7 +77,7 @@
 
 <div id="question_4" class="question_container">
 
-<span class="titles">Team role preferences</span>
+<span class="titles">Team Role Preferences</span>
 	<p>Indicate your preference for the team roles below with:</p>
 
 	<div class="input_container preferences_inputs">
@@ -88,9 +88,9 @@
 				<option value="Shaper">Shaper</option>
 				<option value="Implementer">Implementer</option>
 				<option value="Plant">Plant</option>
-				<option value="TeamWorker">Team worker</option>
-				<option value="Monitor">Monitor/evaluator</option>
-				<option value="Completer">Completer/finisher</option>
+				<option value="TeamWorker">Team Worker</option>
+				<option value="Monitor">Monitor Evaluator</option>
+				<option value="Completer">Completer Finisher</option>
 				<option value="Resource_Investigator">Resource Investigator</option>
 		</select>
 	</div>
@@ -104,24 +104,24 @@
 				<option value="Shaper">Shaper</option>
 				<option value="Implementer">Implementer</option>
 				<option value="Plant">Plant</option>
-				<option value="TeamWorker">Team worker</option>
-				<option value="Monitor">Monitor/evaluator</option>
-				<option value="Completer">Completer/finisher</option>
+				<option value="TeamWorker">Team Worker</option>
+				<option value="Monitor">Monitor Evaluator</option>
+				<option value="Completer">Completer Finisher</option>
 				<option value="Resource_Investigator">Resource Investigator</option>
 		</select>
 	</div>
 
 	<div class="input_container preferences_inputs">
-		<b>Least prefered role:</b>
+		<b>Least preferred role:</b>
 		<select name="least_preference" class="preference_dropdown target custom_select" id='preference_3' >
 				<option selected disabled hidden style='display: none' value=''></option>
 				<option value="Coordinator">Coordinator</option>
 				<option value="Shaper">Shaper</option>
 				<option value="Implementer">Implementer</option>
 				<option value="Plant">Plant</option>
-				<option value="TeamWorker">Team worker</option>
-				<option value="Monitor">Monitor/evaluator</option>
-				<option value="Completer">Completer/finisher</option>
+				<option value="TeamWorker">Team Worker</option>
+				<option value="Monitor">Monitor Evaluator</option>
+				<option value="Completer">Completer Finisher</option>
 				<option value="Resource_Investigator">Resource Investigator</option>
 		</select>
 	</div>
@@ -473,11 +473,11 @@ $(document).ready(function() {
 							break;
 						case 'Monitor': 
 							team_role_option_1 = base64_images.monitor;
-							team_role_name_1 = "Monitor / Evaluator";
+							team_role_name_1 = "Monitor Evaluator";
 							break;
 						case 'Completer': 
 							team_role_option_1 = base64_images.completer;
-							team_role_name_1 = "Completer / Finisher";
+							team_role_name_1 = "Completer Finisher";
 							break;
 						case 'Resource_Investigator': 
 							team_role_option_1 = base64_images.resource;
@@ -513,11 +513,11 @@ $(document).ready(function() {
 							break;
 						case 'Monitor': 
 							team_role_option_2 = base64_images.monitor;
-							team_role_name_2 = "Monitor / Evaluator";
+							team_role_name_2 = "Monitor Evaluator";
 							break;
 						case 'Completer': 
 							team_role_option_2 = base64_images.completer;
-							team_role_name_2 = "Completer / Finisher";
+							team_role_name_2 = "Completer Finisher";
 							break;
 						case 'Resource_Investigator': 
 							team_role_option_2 = base64_images.resource;
@@ -552,11 +552,11 @@ $(document).ready(function() {
 							break;
 						case 'Monitor': 
 							team_role_option_3 = base64_images.monitor;
-							team_role_name_3 = "Monitor / Evaluator";
+							team_role_name_3 = "Monitor Evaluator";
 							break;
 						case 'Completer': 
 							team_role_option_3 = base64_images.completer;
-							team_role_name_3 = "Completer / Finisher";
+							team_role_name_3 = "Completer Finisher";
 							break;
 						case 'Resource_Investigator': 
 							team_role_option_3 = base64_images.resource;
@@ -595,7 +595,7 @@ $(document).ready(function() {
 
 			doc.setFontSize(headingsize);
 			doc.setFontType("bold");
-			doc.text(margin, 90+total_vert_offset, "extraversion or introversion");
+			doc.text(margin, 90+total_vert_offset, "Extraversion or Introversion");
 
 
 				doc.setFontType("normal");
@@ -611,7 +611,7 @@ $(document).ready(function() {
 
 
 				doc.setFontSize(textsize);
-				doc.text((margin+extra_friendly_options_offset*2+17), 100+vert_offset+total_vert_offset, "extravert");
+				doc.text((margin+extra_friendly_options_offset*2+17), 100+vert_offset+total_vert_offset, "Extravert");
 				doc.addImage(introvert_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
 
 
@@ -688,7 +688,7 @@ $(document).ready(function() {
 
 			doc.setFontSize(19);
 			doc.setFontType("bold");
-			doc.text(margin, 180+total_vert_offset, "Team Role Preference");
+			doc.text(margin, 180+total_vert_offset, "Team Role Preferences");
 			doc.setLineWidth(0.5);
 			doc.line(margin, 183+total_vert_offset, 200, 183+total_vert_offset);
 
