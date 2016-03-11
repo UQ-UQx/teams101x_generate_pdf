@@ -36,16 +36,17 @@
 
 
 
+
 <form id="survey_form" action="javascript:void(0);" method="POST">
 
 
 <div id="qustion_1" class="question_container">
-	<span class="titles">Extroversion or introversion</span>
-	<p>Would you consider yourself an extrovert or introvert?</p>
-	<div class="input_container extro_intro_inputs">
-		<input class="target" type="radio" name="extro_intro_input" id="introvert_input"	value="Introvert">Introvert</br>
-		<input class="target" type="radio" name="extro_intro_input" id="equal_input"	value="Equal">Equal traits of both</br>
-		<input class="target" type="radio" name="extro_intro_input" id="extrovert_input"	value="Extrovert">Extrovert</br>
+	<span class="titles">Extraversion or introversion</span>
+	<p>Would you consider yourself an extravert or introvert?</p>
+	<div class="input_container extra_intro_inputs">
+		<input class="target" type="radio" name="extra_intro_input" id="introvert_input"	value="Introvert">Introvert</br>
+		<input class="target" type="radio" name="extra_intro_input" id="equal_input"	value="Equal">Equal traits of both</br>
+		<input class="target" type="radio" name="extra_intro_input" id="extravert_input"	value="extravert">extravert</br>
 	</div>
 </div>
 
@@ -348,7 +349,7 @@ $(document).ready(function() {
 			var tickboxsize = 6;
 			var headingsize = 16;
 			var textsize = 12;
-			var extro_friendly_options_offset = 70;
+			var extra_friendly_options_offset = 70;
 			var team_interest_margin_offset = 40;
 			var doc = new jsPDF();
 			var vert_offset = 2;
@@ -391,7 +392,7 @@ $(document).ready(function() {
 
 				console.log(val.name+" = "+val.value);
 
-				if(val.name == "extro_intro_input"){
+				if(val.name == "extra_intro_input"){
 					switch (val.value) { 
 						case 'Introvert': 
 							introvert_option_1_status = base64_images.tick;
@@ -399,7 +400,7 @@ $(document).ready(function() {
 						case 'Equal': 
 							introvert_option_2_status = base64_images.tick;
 							break;
-						case 'Extrovert': 
+						case 'extravert': 
 							introvert_option_3_status = base64_images.tick;
 							break;
 						default:
@@ -594,7 +595,7 @@ $(document).ready(function() {
 
 			doc.setFontSize(headingsize);
 			doc.setFontType("bold");
-			doc.text(margin, 90+total_vert_offset, "Extroversion or introversion");
+			doc.text(margin, 90+total_vert_offset, "extraversion or introversion");
 
 
 				doc.setFontType("normal");
@@ -605,13 +606,13 @@ $(document).ready(function() {
 
 
 				doc.setFontSize(textsize);
-				doc.text((margin+extro_friendly_options_offset+2), 100+vert_offset+total_vert_offset, "Equal traits of both");
-				doc.addImage(introvert_option_2_status, 'JPEG', (margin+extro_friendly_options_offset)+40, 95+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
+				doc.text((margin+extra_friendly_options_offset+2), 100+vert_offset+total_vert_offset, "Equal traits of both");
+				doc.addImage(introvert_option_2_status, 'JPEG', (margin+extra_friendly_options_offset)+40, 95+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
 
 
 				doc.setFontSize(textsize);
-				doc.text((margin+extro_friendly_options_offset*2+17), 100+vert_offset+total_vert_offset, "Extrovert");
-				doc.addImage(introvert_option_3_status, 'JPEG', (margin+extro_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
+				doc.text((margin+extra_friendly_options_offset*2+17), 100+vert_offset+total_vert_offset, "extravert");
+				doc.addImage(introvert_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
 
 
 
@@ -630,13 +631,13 @@ $(document).ready(function() {
 
 
 				doc.setFontSize(textsize);
-				doc.text((margin+extro_friendly_options_offset+11), 130+vert_offset+total_vert_offset, "Medium");
-				doc.addImage(friendliness_option_2_status, 'JPEG', (margin+extro_friendly_options_offset)+29, 125+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
+				doc.text((margin+extra_friendly_options_offset+11), 130+vert_offset+total_vert_offset, "Medium");
+				doc.addImage(friendliness_option_2_status, 'JPEG', (margin+extra_friendly_options_offset)+29, 125+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
 
 
 				doc.setFontSize(textsize);
-				doc.text((margin+extro_friendly_options_offset*2+26), 130+vert_offset+total_vert_offset, "High");
-				doc.addImage(friendliness_option_3_status, 'JPEG', (margin+extro_friendly_options_offset*2+20)+17, 125+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
+				doc.text((margin+extra_friendly_options_offset*2+26), 130+vert_offset+total_vert_offset, "High");
+				doc.addImage(friendliness_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 125+vert_offset+total_vert_offset, tickboxsize,tickboxsize);
 
 		
 
@@ -735,20 +736,7 @@ $(document).ready(function() {
 
 
 
-			// var documentStructure = {
-
-			// 	content: [
-			// 		{
-			// 			image:base64_images.header,
-			// 			width:515
-			// 		},
-
-			// 		{
-			// 			style: 'tableExample',
-			// 			table: {
-			// 					headerRows: 1,
-			// 					body: [
-			// 							[{ text: 'Extroversion or introversion', style: 'tableHeader' }],
+			// var documentStructure = {extraversion or introversion', style: 'tableHeader' }],
 			// 							[ {
 
 			// 									text:"hello"
