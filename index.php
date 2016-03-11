@@ -491,35 +491,35 @@ $(document).ready(function() {
 				if(val.name == "second_preference"){
 					switch (val.value) { 
 						case 'Coordinator': 
-							team_role_option_1 = base64_images.coordinator;
+							team_role_option_2 = base64_images.coordinator;
 							team_role_name_2 = "Coordinator";
 							break;
 						case 'Shaper': 
-							team_role_option_1 = base64_images.shaper;
+							team_role_option_2 = base64_images.shaper;
 							team_role_name_2 = "Shaper";
 							break;
 						case 'Implementer': 
-							team_role_option_1 = base64_images.implementer;
+							team_role_option_2 = base64_images.implementer;
 							team_role_name_2 = "Implementer";
 							break;
 						case 'Plant': 
-							team_role_option_1 = base64_images.plant;
+							team_role_option_2 = base64_images.plant;
 							team_role_name_2 = "Plant";
 							break;
 						case 'TeamWorker': 
-							team_role_option_1 = base64_images.teamworker;
+							team_role_option_2 = base64_images.teamworker;
 							team_role_name_2 = "Team Worker";
 							break;
 						case 'Monitor': 
-							team_role_option_1 = base64_images.monitor;
+							team_role_option_2 = base64_images.monitor;
 							team_role_name_2 = "Monitor / Evaluator";
 							break;
 						case 'Completer': 
-							team_role_option_1 = base64_images.completer;
+							team_role_option_2 = base64_images.completer;
 							team_role_name_2 = "Completer / Finisher";
 							break;
 						case 'Resource_Investigator': 
-							team_role_option_1 = base64_images.resource;
+							team_role_option_2 = base64_images.resource;
 							team_role_name_2 = "Resource Investigator";
 							break;
 						default:
@@ -530,35 +530,35 @@ $(document).ready(function() {
 				if(val.name == "least_preference"){
 					switch (val.value) { 
 						case 'Coordinator': 
-							team_role_option_1 = base64_images.coordinator;
+							team_role_option_3 = base64_images.coordinator;
 							team_role_name_3 = "Coordinator";
 							break;
 						case 'Shaper': 
-							team_role_option_1 = base64_images.shaper;
+							team_role_option_3 = base64_images.shaper;
 							team_role_name_3 = "Shaper";
 							break;
 						case 'Implementer': 
-							team_role_option_1 = base64_images.implementer;
+							team_role_option_3 = base64_images.implementer;
 							team_role_name_3 = "Implementer";
 							break;
 						case 'Plant': 
-							team_role_option_1 = base64_images.plant;
+							team_role_option_3 = base64_images.plant;
 							team_role_name_3 = "Plant";
 							break;
 						case 'TeamWorker': 
-							team_role_option_1 = base64_images.teamworker;
+							team_role_option_3 = base64_images.teamworker;
 							team_role_name_3 = "Team Worker";
 							break;
 						case 'Monitor': 
-							team_role_option_1 = base64_images.monitor;
+							team_role_option_3 = base64_images.monitor;
 							team_role_name_3 = "Monitor / Evaluator";
 							break;
 						case 'Completer': 
-							team_role_option_1 = base64_images.completer;
+							team_role_option_3 = base64_images.completer;
 							team_role_name_3 = "Completer / Finisher";
 							break;
 						case 'Resource_Investigator': 
-							team_role_option_1 = base64_images.resource;
+							team_role_option_3 = base64_images.resource;
 							team_role_name_3 = "Resource Investigator";
 							break;
 						default:
