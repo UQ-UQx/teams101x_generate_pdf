@@ -634,17 +634,17 @@ $(document).ready(function() {
 
 				doc.setFontSize(textsize);
 				doc.text(margin, 100+vert_offset+total_vert_offset-30, "Junior");
-				doc.addImage(introvert_option_1_status, 'JPEG', margin+14, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+				doc.addImage(exp_option_1_status, 'JPEG', margin+14, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
 
 
 				doc.setFontSize(textsize);
 				doc.text((margin+extra_friendly_options_offset+7), 100+vert_offset+total_vert_offset-30, "Intermediate");
-				doc.addImage(introvert_option_2_status, 'JPEG', (margin+extra_friendly_options_offset)+35, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+				doc.addImage(exp_option_2_status, 'JPEG', (margin+extra_friendly_options_offset)+35, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
 
 
 				doc.setFontSize(textsize);
 				doc.text((margin+extra_friendly_options_offset*2+20), 100+vert_offset+total_vert_offset-30, "Senior");
-				doc.addImage(introvert_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+				doc.addImage(exp_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
 
 
 
