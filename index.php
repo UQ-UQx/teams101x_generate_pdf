@@ -40,6 +40,17 @@
 <form id="survey_form" action="javascript:void(0);" method="POST">
 
 
+<div id="qustion_0" class="question_container">
+	<span class="titles">Experience</span>
+	<p>Select the option that best describes your level of experience.</p>
+	<div class="input_container exp_inputs">
+		<input class="target" type="radio" name="exp_input" id="junior"	value="Junior">Junior</br>
+		<input class="target" type="radio" name="exp_input" id="intermediate"	value="Intermediate">Intermediate</br>
+		<input class="target" type="radio" name="exp_input" id="senior"	value="Senior">Senior</br>
+	</div>
+</div>
+
+
 <div id="qustion_1" class="question_container">
 	<span class="titles">Extraversion or Introversion</span>
 	<p>Would you consider yourself an extravert or introvert?</p>
@@ -216,7 +227,7 @@ $(document).ready(function() {
 		var form_data = $('#survey_form').serializeArray();
 
 
-		if($(form_data).size() == 6){
+		if($(form_data).size() == 7){
 			toggleGenerateButton('on');
 		}else{
 			toggleGenerateButton('off');
@@ -353,7 +364,7 @@ $(document).ready(function() {
 			var team_interest_margin_offset = 40;
 			var doc = new jsPDF();
 			var vert_offset = 2;
-			var total_vert_offset = 10;
+			var total_vert_offset = 45;
 			var scalex_offset = 25;
 			var prefered_role_offset = 10;
 
@@ -362,6 +373,10 @@ $(document).ready(function() {
 			var roleimage_name_y_offset = 30;
 
 
+
+			var exp_option_1_status = base64_images.no_tick;
+			var exp_option_2_status = base64_images.no_tick;
+			var exp_option_3_status = base64_images.no_tick;
 
 			var introvert_option_1_status = base64_images.no_tick;
 			var introvert_option_2_status = base64_images.no_tick;
@@ -391,6 +406,22 @@ $(document).ready(function() {
 			$.each(data, function(key,val){
 
 				console.log(val.name+" = "+val.value);
+
+				if(val.name == "exp_input"){
+					switch (val.value) { 
+						case 'Junior': 
+							exp_option_1_status = base64_images.tick;
+							break;
+						case 'Intermediate': 
+							exp_option_2_status = base64_images.tick;
+							break;
+						case 'Senior': 
+							exp_option_3_status = base64_images.tick;
+							break;
+						default:
+							break;
+					}
+				}
 
 				if(val.name == "extra_intro_input"){
 					switch (val.value) { 
@@ -591,6 +622,32 @@ $(document).ready(function() {
 			doc.text(margin, 90, "Personal Traits");
 			doc.setLineWidth(0.5);
 			doc.line(margin, 93, 200, 93);
+
+
+
+			doc.setFontSize(headingsize);
+			doc.setFontType("bold");
+			doc.text(margin, 90+total_vert_offset-30, "Experience");
+
+
+				doc.setFontType("normal");
+
+				doc.setFontSize(textsize);
+				doc.text(margin, 100+vert_offset+total_vert_offset-30, "Junior");
+				doc.addImage(introvert_option_1_status, 'JPEG', margin+14, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+
+
+				doc.setFontSize(textsize);
+				doc.text((margin+extra_friendly_options_offset+7), 100+vert_offset+total_vert_offset-30, "Intermediate");
+				doc.addImage(introvert_option_2_status, 'JPEG', (margin+extra_friendly_options_offset)+35, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+
+
+				doc.setFontSize(textsize);
+				doc.text((margin+extra_friendly_options_offset*2+20), 100+vert_offset+total_vert_offset-30, "Senior");
+				doc.addImage(introvert_option_3_status, 'JPEG', (margin+extra_friendly_options_offset*2+20)+17, 95+vert_offset+total_vert_offset-30, tickboxsize,tickboxsize);
+
+
+
 
 
 			doc.setFontSize(headingsize);
